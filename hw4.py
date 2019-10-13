@@ -4,3 +4,25 @@
 Выведите соответствующее сообщение. Если фирма отработала с прибылью, вычислите рентабельность выручки (соотношение прибыли к выручке).
 Далее запросите численность сотрудников фирмы и определите прибыль фирмы в расчете на одного сотрудника.
 """
+
+proceeds = input("Введите сумму выручки")
+outlay = input("Введити сумму издержек")
+
+if proceeds.isdigit() and outlay.isdigit():
+    proceeds = int(proceeds)
+    outlay = int(outlay)
+    fin_result = proceeds - outlay
+
+    if fin_result > 0:
+        print(f"Фирма отработала с прибылью в {fin_result},\n соотношение прибыли к выручке {proceeds / outlay}")
+        workers_count = input("Сколько у вас сотрудников?")
+        if workers_count.isdigit():
+            print(f"Прибыль на одного сотрудника составляет: {fin_result / int(workers_count)}")
+        else:
+            print("неверный ввод - надо было вводить число")
+    elif fin_result < 0:
+        print(f"Фирма отработала с убытком в {fin_result}")
+    else:
+        print(f"Фирма сработала в {fin_result}, ну хоть не убыток")
+else:
+    print("Неверный ввод")

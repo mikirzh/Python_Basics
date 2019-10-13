@@ -5,3 +5,14 @@
 Требуется определить номер дня, на который общий результат спортсмена составить не менее b километров.
 Программа должна принимать значения параметров a и b и выводить одно натуральное число - номер дня.
 """
+
+first_day = input("Введите сколько километров пробежал в 1 день")
+search_result = input("Введите какой результат ищем")
+km_result = int(first_day)
+search_day = 1
+while int(first_day) <= int(search_result):
+    first_day *= 1.1
+    km_result += first_day
+    search_day += 1
+
+print(search_day)
