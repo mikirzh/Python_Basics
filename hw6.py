@@ -12,3 +12,58 @@
 Пример: { “название”: [“компьютер”, “принтер”, “сканер”], “цена”: [20000, 6000, 2000], “количество”: [5, 2, 7], “ед”: [“шт.”] }
 """
 
+# Шаблон товара, сразу с вопросом к пользователю и типом ожидаемых данных
+product_template = {
+    'название': ('имя товара', str),
+    'цена': ('стоимость товара', int),
+    'количество': ('количество товара', int),
+    'ед': ('Единицы измерения (шт, кг и тд)', str)
+}
+
+# Флаг для понимания надо нам еще товар добавлять в список или нет
+next_enter = True
+
+# Автоинкримент для номера товара
+auto_inc = 1
+
+# список для хранения наших товаров
+products_list = []
+
+while next_enter:
+    # словарь в котором мы будем заполнять атрибуты товара
+    product = {}
+    # заполняем товар по шаблону
+    for key, value in product_template.items():
+        # цикл while True я использую для того чтобы переспросить вопрос если будет неверный ввод по типу
+        while True:
+            user_value = input(f'{value[0]}\n')
+            try:
+                user_value = value[1] (user_value)
+            except ValueError as e:
+                print (f'{e}\nНе верное значение данных')
+            continue
+        product[key] = user_value
+        break
+    products_list.append((auto_inc, product))
+    auto_inc += 1
+
+    # тут мы проверим надо еще товар вводить или нет
+    while True:
+        next_add = input('Добавить еще продукт? Да/Нет\n')
+        if next_add.lower() in ('да', 'нет'):
+            next_enter = next_add.lower() == 'да'
+            break
+        else:
+            print('Неверный ввод, повторите')
+
+# product_analytics = {}
+
+# собираем словарь аналитики
+# for key in product_template:
+#    products_analytics[key] = [itm[1] [key] for itm in products_list]
+
+# собираем словарь аналитики
+products_analytics = {key: [itm[1] [key] for itm in products_list] for key in product_template}
+
+print(1)
+print(products_list)

@@ -29,7 +29,7 @@ season_list = ['зима',
                'осень',
                ]
 
-while_True:
+while True:
     user_moth_num = input('введите номер месяца')
     try:
         # пробуем преобразовать к числу
