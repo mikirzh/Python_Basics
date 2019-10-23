@@ -3,7 +3,7 @@
 Числа запрашивать у пользователя, предусмотреть обработку ситуации деления на ноль.
 """
 
- def dision(a: float) -> float:
+def division(a: float) -> float:
     """
     делит a на b
     :param a:
